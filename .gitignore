@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs/giura/v16/.suo
+/Vending Machine/VendingMachine/obj
+/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.runtimeconfig.json
+/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.runtimeconfig.dev.json
+/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.pdb
+/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.exe
+/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.dll
+/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.deps.json
+/Vending Machine/.vs/VendingMachine/v16/.suo
+/Vending Machine/.vs/VendingMachine/DesignTimeBuild/.dtbcache.v2
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
