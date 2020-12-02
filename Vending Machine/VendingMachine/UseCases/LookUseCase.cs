@@ -5,21 +5,28 @@ using System.Text;
 
 namespace iQuest.VendingMachine
 {
-    public class LookUseCase : IUseCase
+    internal class LookUseCase : IUseCase
     {
         private readonly AuthenticationService authenticationService;
-
+        private readonly ProductRepository productRepository;
+        private readonly ShelfView shelfView;
+        
         public string Name => "look";
 
         public string Description => "Look at the vending machine's products / stock";
 
         public bool CanExecute => authenticationService.IsUserAuthenticated;
 
+        public LookUseCase(AuthenticationService authenticationService, ProductRepository productRepository, ShelfView shelfView)
+        {
+            this.authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
+            this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
+            this.shelfView = shelfView ?? throw new ArgumentNullException(nameof(shelfView));
+        }
+
         public void Execute()
         {
-            ProductRepository productRepository = new ProductRepository();
             var products = productRepository.GetAll();
-            ShelfView shelfView = new ShelfView();
             shelfView.DisplayProducts(products);
         }
     }

@@ -4,22 +4,22 @@ using System.Text;
 
 namespace iQuest.VendingMachine
 {
-    public class Product
+    internal class Product
     {
-        public int Column { get;}
-        public string Name { get; }
-        public float Price { get;}
+        private string Name { get; }
+        private decimal Price { get;}
         public int Quantity { get;}
-
-        public Product(string name, int quantity)
+        
+        public Product(string name, int quantity, decimal price)
         {
             Name = name;
             Quantity = quantity;
+            Price = price;
         }
 
         public override string ToString()
         {
-            return $"{Name} - {Quantity}"; 
+            return $"{Name} - Quantity: {Quantity} - Price per item: {Price}$"; 
         }
     }
 }

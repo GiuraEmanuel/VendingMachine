@@ -6,8 +6,6 @@ namespace iQuest.VendingMachine
     {
         private static void Main(string[] args)
         {
-            LookUseCase lookUseCase = new LookUseCase();
-            lookUseCase.Execute();
             try
             {
                 Bootstrapper bootstrapper = new Bootstrapper();
