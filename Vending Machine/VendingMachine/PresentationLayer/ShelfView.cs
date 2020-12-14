@@ -19,13 +19,9 @@ namespace iQuest.VendingMachine
 
         private void DisplayProducts(Product product)
         {
-            if (product.Quantity > 0)
+            if (product.Quantity >= 0)
             {
                 DisplayLine(product.ToString(), ConsoleColor.Green);
-            }
-            else
-            {
-                Console.WriteLine("Product doesn't exist in stock.");
             }
         }
     }

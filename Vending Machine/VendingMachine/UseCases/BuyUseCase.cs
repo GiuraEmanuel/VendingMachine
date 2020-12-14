@@ -47,17 +47,12 @@ namespace iQuest.VendingMachine.PresentationLayer
                 dispenserView.DispenseProduct(product.Name);
 
         }
-            catch (InvalidColumnException ex)
-            {
-                buyView.ShowError(ex.Message);
-            }
-
-            catch (InsuficientStockException ex)
-            {
-                buyView.ShowError(ex.Message);
-            }
-
             catch (CancelException ex)
+            {
+                buyView.ShowError(ex.Message);
+            }
+
+            catch (Exception ex)
             {
                 buyView.ShowError(ex.Message);
             }
