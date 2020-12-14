@@ -1,8 +1,6 @@
 ﻿using iQuest.VendingMachine.Authentication;
 using iQuest.VendingMachine.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
