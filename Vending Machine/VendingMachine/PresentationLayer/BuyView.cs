@@ -30,9 +30,13 @@ namespace iQuest.VendingMachine
             Display("Enter product id: ", ConsoleColor.Cyan);
             var input = Console.ReadLine();
             int columnId;
-            if (int.TryParse(input, out columnId) || input == null)
+            if (int.TryParse(input, out columnId))
             {
                 return columnId;
+            }
+            else if (input == "")
+            {
+                throw new CancelException("Buy process aborted.");
             }
             throw new InvalidColumnException("Invalid product id.");
         }

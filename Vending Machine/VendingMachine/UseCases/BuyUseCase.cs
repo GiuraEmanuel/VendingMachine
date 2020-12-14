@@ -34,7 +34,7 @@ namespace iQuest.VendingMachine.PresentationLayer
 
                 if (product == null)
                 {
-                    throw new InvalidColumnException("Product does not exist.");
+                    throw new InvalidColumnException("Invalid column provided.");
                 }
 
                 if (product.Quantity <= 0)
