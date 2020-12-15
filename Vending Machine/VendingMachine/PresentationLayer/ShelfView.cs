@@ -13,14 +13,15 @@ namespace iQuest.VendingMachine
 
             foreach (var product in products)
             {
-                if (product!= null && product.Quantity > 0)
-                {
-                    DisplayLine(product.ToString(), ConsoleColor.Green);
-                }
-                else
-                {
-                    throw new NullReferenceException("Product is null.");
-                }
+                DisplayProducts(product);
+            }
+        }
+
+        private void DisplayProducts(Product product)
+        {
+            if (product.Quantity >= 0)
+            {
+                DisplayLine(product.ToString(), ConsoleColor.Green);
             }
         }
     }

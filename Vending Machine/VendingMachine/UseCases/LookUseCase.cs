@@ -15,7 +15,7 @@ namespace iQuest.VendingMachine
 
         public string Description => "Look at the vending machine's products / stock";
 
-        public bool CanExecute => authenticationService.IsUserAuthenticated;
+        public bool CanExecute => true;
 
         public LookUseCase(AuthenticationService authenticationService, ProductRepository productRepository, ShelfView shelfView)
         {

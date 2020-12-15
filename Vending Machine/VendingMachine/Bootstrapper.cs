@@ -21,12 +21,15 @@ namespace iQuest.VendingMachine
 
             AuthenticationService authenticationService = new AuthenticationService();
             ProductRepository productRepository = new ProductRepository();
+            DispenserView dispenserView = new DispenserView();
+            BuyView buyView = new BuyView();
 
             List<IUseCase> useCases = new List<IUseCase>
             {
                 new LoginUseCase(authenticationService, loginView),
                 new LogoutUseCase(authenticationService),
-                new LookUseCase(authenticationService, productRepository, shelfView)
+                new LookUseCase(authenticationService, productRepository, shelfView),
+                new BuyUseCase(authenticationService,productRepository,dispenserView,buyView)
             };
 
             return new VendingMachineApplication(useCases, mainView);
