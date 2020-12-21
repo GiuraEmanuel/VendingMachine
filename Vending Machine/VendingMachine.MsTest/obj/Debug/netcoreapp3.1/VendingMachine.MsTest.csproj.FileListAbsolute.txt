@@ -1,0 +1,4 @@
+C:\Users\stabberxX\source\repos\rl-dotnet-sibiu-2021\giura\Vending Machine\VendingMachine.MsTest\obj\Debug\netcoreapp3.1\VendingMachine.MsTest.csprojAssemblyReference.cache
+C:\Users\stabberxX\source\repos\rl-dotnet-sibiu-2021\giura\Vending Machine\VendingMachine.MsTest\obj\Debug\netcoreapp3.1\VendingMachine.MsTest.AssemblyInfoInputs.cache
+C:\Users\stabberxX\source\repos\rl-dotnet-sibiu-2021\giura\Vending Machine\VendingMachine.MsTest\obj\Debug\netcoreapp3.1\VendingMachine.MsTest.AssemblyInfo.cs
+C:\Users\stabberxX\source\repos\rl-dotnet-sibiu-2021\giura\Vending Machine\VendingMachine.MsTest\obj\Debug\netcoreapp3.1\VendingMachine.MsTest.csproj.CoreCompileInputs.cache

@@ -1,0 +1,160 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine.MsTest\\VendingMachine.MsTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine.MsTest\\VendingMachine.MsTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine.MsTest\\VendingMachine.MsTest.csproj",
+        "projectName": "VendingMachine.MsTest",
+        "projectPath": "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine.MsTest\\VendingMachine.MsTest.csproj",
+        "packagesPath": "C:\\Users\\stabberxX\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine.MsTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\stabberxX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine\\VendingMachine.csproj": {
+                "projectPath": "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine\\VendingMachine.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine\\VendingMachine.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine\\VendingMachine.csproj",
+        "projectName": "iQuest.VendingMachine",
+        "projectPath": "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine\\VendingMachine.csproj",
+        "packagesPath": "C:\\Users\\stabberxX\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stabberxX\\source\\repos\\rl-dotnet-sibiu-2021\\giura\\Vending Machine\\VendingMachine\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\stabberxX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Moq": {
+              "target": "Package",
+              "version": "[4.15.2, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

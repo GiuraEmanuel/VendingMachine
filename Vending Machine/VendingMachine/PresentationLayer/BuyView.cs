@@ -34,7 +34,7 @@ namespace iQuest.VendingMachine
             {
                 return columnId;
             }
-            else if (input == "")
+            else if (string.IsNullOrWhiteSpace(input))
             {
                 throw new CancelException("Buy process aborted.");
             }

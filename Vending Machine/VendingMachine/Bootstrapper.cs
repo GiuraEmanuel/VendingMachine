@@ -18,12 +18,12 @@ namespace iQuest.VendingMachine
             MainView mainView = new MainView();
             LoginView loginView = new LoginView();
             ShelfView shelfView = new ShelfView();
+            BuyView buyView = new BuyView();
+            DispenserView dispenserView = new DispenserView();
 
             AuthenticationService authenticationService = new AuthenticationService();
             ProductRepository productRepository = new ProductRepository();
-            DispenserView dispenserView = new DispenserView();
-            BuyView buyView = new BuyView();
-
+            
             List<IUseCase> useCases = new List<IUseCase>
             {
                 new LoginUseCase(authenticationService, loginView),

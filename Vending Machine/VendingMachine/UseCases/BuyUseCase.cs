@@ -1,17 +1,18 @@
 ﻿using iQuest.VendingMachine.Authentication;
 using iQuest.VendingMachine.Exceptions;
+using iQuest.VendingMachine.Interfaces;
 using System;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
     internal class BuyUseCase : IUseCase
     {
-        private readonly AuthenticationService authenticationService;
-        private readonly ProductRepository productRepository;
-        private readonly DispenserView dispenserView;
-        private readonly BuyView buyView;
+        private readonly IAuthenticationService authenticationService;
+        private readonly IProductRepository productRepository;
+        private readonly IDispenserView dispenserView;
+        private readonly IBuyView buyView;
 
-        public BuyUseCase(AuthenticationService authenticationService, ProductRepository productRepository, DispenserView dispenserView, BuyView buyView)
+        public BuyUseCase(IAuthenticationService authenticationService, IProductRepository productRepository, IDispenserView dispenserView, IBuyView buyView)
         {
             this.authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
             this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
@@ -29,9 +30,9 @@ namespace iQuest.VendingMachine.PresentationLayer
         {
             try
             {
-                var columnId = buyView.AskForColumnId();
-                var product = productRepository.GetByColumn(columnId);
-
+                int columnId = buyView.AskForColumnId();
+                Product product = productRepository.GetByColumn(columnId);
+    
                 if (product == null)
                 {
                     throw new InvalidColumnException("Invalid column provided.");
@@ -46,7 +47,7 @@ namespace iQuest.VendingMachine.PresentationLayer
 
                 dispenserView.DispenseProduct(product.Name);
 
-        }
+            }
             catch (CancelException ex)
             {
                 buyView.ShowError(ex.Message);
