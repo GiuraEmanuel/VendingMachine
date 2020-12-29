@@ -1894,9 +1894,6 @@
       "iQuest.VendingMachine/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Moq": "4.15.2"
-        },
         "compile": {
           "bin/placeholder/iQuest.VendingMachine.dll": {}
         },
@@ -6499,6 +6496,7 @@
       "MSTest.TestFramework >= 2.1.0",
       "Microsoft.AspNetCore.Authentication.Abstractions >= 2.2.0",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
+      "Moq >= 4.15.2",
       "coverlet.collector >= 1.2.0",
       "iQuest.VendingMachine >= 1.0.0"
     ]
@@ -6566,6 +6564,10 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[16.5.0, )"
+          },
+          "Moq": {
+            "target": "Package",
+            "version": "[4.15.2, )"
           },
           "coverlet.collector": {
             "target": "Package",

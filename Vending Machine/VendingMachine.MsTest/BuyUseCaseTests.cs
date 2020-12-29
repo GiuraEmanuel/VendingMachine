@@ -1,15 +1,10 @@
 using iQuest.VendingMachine;
-using iQuest.VendingMachine.Authentication;
 using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.PresentationLayer;
-using iQuest.VendingMachine.UseCases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
+
 namespace VendingMachine.MsTest
 {
     [TestClass]
@@ -33,6 +28,7 @@ namespace VendingMachine.MsTest
         public void Execute_InvalidInput_ThrowsInvalidColumnException()
         {
             var buyUseCase = new BuyUseCase(authenticationServiceMock.Object, productRepositoryMock.Object,dispenserViewMock.Object, buyViewMock.Object);
+            buyViewMock.Setup(x => x.AskForColumnId()).Returns(10);
             Assert.ThrowsException<InvalidColumnException>(() => buyUseCase.Execute());
         }
 
@@ -40,7 +36,36 @@ namespace VendingMachine.MsTest
         public void Execute_QuantityLessThanOrEqualToZero_ThrowsInsufficentStockException()
         {
             var buyUseCase = new BuyUseCase(authenticationServiceMock.Object, productRepositoryMock.Object, dispenserViewMock.Object, buyViewMock.Object);
+
+            buyViewMock.Setup(x => x.AskForColumnId()).Returns(1);
+            productRepositoryMock.Setup(x => x.GetByColumn(1).SetQuantity(0));
+
+
             Assert.ThrowsException<InsuficientStockException>(() => buyUseCase.Execute());
+        }
+
+        [TestMethod]
+        public void Execute_NullOrWhiteSpaceInput_ThrowsCancelException()
+        {
+            var buyUseCase = new BuyUseCase(authenticationServiceMock.Object, productRepositoryMock.Object, dispenserViewMock.Object, buyViewMock.Object);
+
+            buyViewMock.Setup(x => x.AskForColumnId()).Throws<CancelException>();
+
+            Assert.ThrowsException<CancelException>(() => buyUseCase.Execute());
+        }
+
+        [TestMethod]
+        public void Execute_ValidInput_EverythingSuccesful()
+        {
+            var buyUseCase = new BuyUseCase(authenticationServiceMock.Object, productRepositoryMock.Object, dispenserViewMock.Object, buyViewMock.Object);
+            Product product = new Product(1, "Cola", 1, 1.00M);
+            productRepositoryMock.Setup(x => x.GetByColumn(1)).Returns(product);
+            buyViewMock.Setup(x => x.AskForColumnId()).Returns(product.ColumnId);
+            
+
+            dispenserViewMock.Setup(x => x.DispenseProduct(product.Name));
+
+            // don't know how to assert that the flow succesfully executes.
         }
     }
 }
