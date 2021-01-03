@@ -15,7 +15,6 @@ namespace VendingMachine.MsTest
         private readonly Mock<IProductRepository> productRepositoryMock;
         private readonly Mock<IDispenserView> dispenserViewMock;
 
-
         public BuyUseCaseTests()
         {
             authenticationServiceMock = new Mock<IAuthenticationService>();
