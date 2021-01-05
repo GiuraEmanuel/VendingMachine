@@ -57,20 +57,20 @@ namespace VendingMachine.MsTest
         public void Execute_ValidInput_EverythingSuccesful()
         {
             var buyUseCase = new BuyUseCase(authenticationServiceMock.Object, productRepositoryMock.Object, dispenserViewMock.Object, buyViewMock.Object);
-
-            Product product = new Product(1, "Cola", 1, 1.00M);
+            
+            Product product = new Product(1, "Cola", 5, 1.00M);
+            
             buyViewMock.Setup(x => x.AskForColumnId()).Returns(product.ColumnId);
             buyViewMock.Verify(buyViewMock => buyViewMock.AskForColumnId());
-            productRepositoryMock.Setup(x => x.GetByColumn(1)).Returns(product);
+            productRepositoryMock.Setup(x => x.GetByColumn(It.IsAny<int>())).Returns(product);
             productRepositoryMock.Verify(productRepositoryMock => productRepositoryMock.GetByColumn(1));
             dispenserViewMock.Setup(x => x.DispenseProduct(product.Name));
             dispenserViewMock.Verify(dispenserViewMock => dispenserViewMock.DispenseProduct(product.Name));
 
-            
-
+            var expectedQuantity = 4;
             buyUseCase.Execute();
-            product.DecrementQuantity();
             
+            Assert.AreEqual(product.Quantity, expectedQuantity);
         }
     }
 }
