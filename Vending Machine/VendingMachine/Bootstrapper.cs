@@ -32,8 +32,6 @@ namespace iQuest.VendingMachine
                 new BuyUseCase(authenticationService, productRepository, dispenserView, buyView)
             };
 
-
-
             return new VendingMachineApplication(useCases, mainView);
         }
     }
