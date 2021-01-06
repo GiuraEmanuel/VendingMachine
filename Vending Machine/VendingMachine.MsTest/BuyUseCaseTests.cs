@@ -59,17 +59,17 @@ namespace VendingMachine.MsTest
             var buyUseCase = new BuyUseCase(authenticationServiceMock.Object, productRepositoryMock.Object, dispenserViewMock.Object, buyViewMock.Object);
             
             Product product = new Product(1, "Cola", 5, 1.00M);
-            
-            buyViewMock.Setup(x => x.AskForColumnId()).Returns(product.ColumnId);
+            buyUseCase.Execute();
+            buyViewMock.Setup(buyViewMock => buyViewMock.AskForColumnId()).Returns(product.ColumnId);
             buyViewMock.Verify(buyViewMock => buyViewMock.AskForColumnId());
-            productRepositoryMock.Setup(x => x.GetByColumn(It.IsAny<int>())).Returns(product);
+            productRepositoryMock.Setup(productRepositoryMock => productRepositoryMock.GetByColumn(It.IsAny<int>())).Returns(product);
             productRepositoryMock.Verify(productRepositoryMock => productRepositoryMock.GetByColumn(1));
-            dispenserViewMock.Setup(x => x.DispenseProduct(product.Name));
+            dispenserViewMock.Setup(dispenserViewMock => dispenserViewMock.DispenseProduct(product.Name));
             dispenserViewMock.Verify(dispenserViewMock => dispenserViewMock.DispenseProduct(product.Name));
 
             var expectedQuantity = 4;
-            buyUseCase.Execute();
             
+
             Assert.AreEqual(product.Quantity, expectedQuantity);
         }
     }

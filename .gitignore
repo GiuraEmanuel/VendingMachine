@@ -21,3 +21,5 @@
 *.pdb
 *.dll
 *.cache
+/VendingMachine.MsTest/bin
+/VendingMachine.MsTest/obj

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using iQuest.VendingMachine.Authentication;
-using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.PresentationLayer;
 using iQuest.VendingMachine.UseCases;
 

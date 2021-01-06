@@ -1,5 +1,4 @@
-﻿using iQuest.VendingMachine.Authentication;
-using iQuest.VendingMachine.Exceptions;
+﻿using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
 using System;
 

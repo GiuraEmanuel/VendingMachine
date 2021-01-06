@@ -1,7 +1,5 @@
 ﻿using iQuest.VendingMachine.Authentication;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace iQuest.VendingMachine
 {
