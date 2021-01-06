@@ -29,8 +29,6 @@ namespace iQuest.VendingMachine.PresentationLayer
 
         public void Execute()
         {
-            //try
-            //{
                 int columnId = buyView.AskForColumnId();
                 Product product = productRepository.GetByColumn(columnId);
     
@@ -47,19 +45,6 @@ namespace iQuest.VendingMachine.PresentationLayer
                 product.DecrementQuantity();
 
             dispenserView.DispenseProduct(product.Name);
-
-            //can't figure out how to have this code with try catch and still have my tests pass. Awaiting suggestions.
-
-            //}
-            //catch (CancelException ex)
-            //{
-            //    buyView.ShowError(ex.Message);
-            //}
-
-            //catch (Exception ex)
-            //{
-            //    buyView.ShowError(ex.Message);
-            //}
         }
     }
 }

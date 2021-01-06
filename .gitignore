@@ -21,5 +21,6 @@
 *.pdb
 *.dll
 *.cache
-/VendingMachine.MsTest/bin
-/VendingMachine.MsTest/obj
+/VendingMachine.MsTest/bin/Debug/netcoreapp3.1
+/VendingMachine.MsTest/obj/Debug/netcoreapp3.1
+/Vending Machine/.vs/VendingMachine/v16/TestStore/0/001.testlog
