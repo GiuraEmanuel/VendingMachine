@@ -13,4 +13,11 @@
         <Copyright>Copyright © iQuest 2017-2020</Copyright>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="coverlet.collector" Version="1.3.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
 </Project>

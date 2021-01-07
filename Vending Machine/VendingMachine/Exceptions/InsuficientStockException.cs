@@ -6,6 +6,11 @@ namespace iQuest.VendingMachine.Exceptions
 {
     internal class InsuficientStockException: Exception
     {
+        public InsuficientStockException()
+        {
+
+        }
+
         public InsuficientStockException(string message): base(message)
         {
 
