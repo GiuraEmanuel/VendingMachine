@@ -1,4 +1,5 @@
-﻿using iQuest.VendingMachine.Exceptions;
+﻿using iQuest.VendingMachine.Authentication;
+using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
 using System;
 
@@ -31,7 +32,7 @@ namespace iQuest.VendingMachine.PresentationLayer
         {
                 int columnId = buyView.AskForColumnId();
                 Product product = productRepository.GetByColumn(columnId);
-    
+
                 if (product == null)
                 {
                     throw new InvalidColumnException("Invalid column provided.");
@@ -44,7 +45,8 @@ namespace iQuest.VendingMachine.PresentationLayer
 
                 product.DecrementQuantity();
 
-            dispenserView.DispenseProduct(product.Name);
+                dispenserView.DispenseProduct(product.Name);
+
         }
     }
 }

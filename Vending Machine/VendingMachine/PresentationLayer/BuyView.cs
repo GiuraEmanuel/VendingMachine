@@ -12,6 +12,10 @@ namespace iQuest.VendingMachine
         public Product RequestProduct(int columnId)
         {
             var product = productRepository.GetByColumn(columnId);
+            if (product == null)
+            {
+                throw new InvalidColumnException("Product does not exist.");
+            }
 
             if (product.Quantity <= 0)
             {
