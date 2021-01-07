@@ -2,25 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/giura/v16/.suo
-/Vending Machine/VendingMachine/obj
-/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.runtimeconfig.json
-/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.runtimeconfig.dev.json
-/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.pdb
-/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.exe
-/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.dll
-/Vending Machine/VendingMachine/bin/Debug/netcoreapp3.1/iQuest.VendingMachine.deps.json
-/Vending Machine/.vs/VendingMachine/v16/.suo
-/Vending Machine/.vs/VendingMachine/DesignTimeBuild/.dtbcache.v2
-/.vs/VSWorkspaceState.json
-/.vs/slnx.sqlite
-/Vending Machine/.vs/VendingMachine/v16/TestStore/1/001.testlog
-/Vending Machine/.vs/VendingMachine/v16/TestStore/1/testlog.manifest
-/Vending Machine/.vs/VendingMachine/v16/TestStore/0/000.testlog
-/Vending Machine/.vs/VendingMachine/v16/TestStore/0/testlog.manifest
-*.pdb
-*.dll
-*.cache
-/VendingMachine.MsTest/bin/Debug/netcoreapp3.1
-/VendingMachine.MsTest/obj/Debug/netcoreapp3.1
-/Vending Machine/.vs/VendingMachine/v16/TestStore/0/001.testlog
+/.vs
+/**/bin/
+/**/obj/
+/**/.vs/
