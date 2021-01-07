@@ -6,6 +6,11 @@ namespace iQuest.VendingMachine.Exceptions
 {
     internal class CancelException : Exception
     {
+        public CancelException()
+        {
+
+        }
+
         public CancelException(string message): base(message)
         {
 

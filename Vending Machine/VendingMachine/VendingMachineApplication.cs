@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine
@@ -8,11 +9,13 @@ namespace iQuest.VendingMachine
     {
         private readonly List<IUseCase> useCases;
         private readonly MainView mainView;
+        private readonly BuyView buyView;
 
         public VendingMachineApplication(List<IUseCase> useCases, MainView mainView)
         {
             this.useCases = useCases ?? throw new ArgumentNullException(nameof(useCases));
             this.mainView = mainView ?? throw new ArgumentNullException(nameof(mainView));
+            buyView = new BuyView();
         }
 
         public void Run()
@@ -21,10 +24,18 @@ namespace iQuest.VendingMachine
 
             while (true)
             {
-                List<IUseCase> availableUseCases = GetExecutableUseCases();
+                try
+                {
+                   List<IUseCase> availableUseCases = GetExecutableUseCases();
 
-                IUseCase useCase = mainView.ChooseCommand(availableUseCases);
-                useCase.Execute();
+                   IUseCase useCase = mainView.ChooseCommand(availableUseCases);
+                   useCase.Execute();
+                }
+
+                catch (Exception ex)
+                {
+                   buyView.ShowError(ex.Message);
+                }
             }
         }
 

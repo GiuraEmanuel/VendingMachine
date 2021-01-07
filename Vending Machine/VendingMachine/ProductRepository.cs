@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using iQuest.VendingMachine.Interfaces;
+using System.Collections.Generic;
 
 namespace iQuest.VendingMachine
 {
-    internal class ProductRepository
+    internal class ProductRepository : IProductRepository
     {
         private List<Product> products = new List<Product>
         {

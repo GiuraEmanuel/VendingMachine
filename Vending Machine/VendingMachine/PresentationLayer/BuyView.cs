@@ -1,10 +1,11 @@
 ﻿using iQuest.VendingMachine.Exceptions;
+using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.PresentationLayer;
 using System;
 
 namespace iQuest.VendingMachine
 {
-    internal class BuyView : DisplayBase
+    internal class BuyView : DisplayBase, IBuyView
     {
         ProductRepository productRepository = new ProductRepository();
 
@@ -21,6 +22,10 @@ namespace iQuest.VendingMachine
                 throw new InsuficientStockException("Insufficent stock.");
             }
 
+            else if(product == null)
+            {
+                throw new InvalidColumnException("Product does not exist.");
+            }
             return product;
         }
 
@@ -28,15 +33,16 @@ namespace iQuest.VendingMachine
         {
             Console.WriteLine();
             Display("Enter product id: ", ConsoleColor.Cyan);
-            var input = Console.ReadLine();
-            int columnId;
-            if (int.TryParse(input, out columnId))
-            {
-                return columnId;
-            }
-            else if (input == "")
+            string input = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(input))
             {
                 throw new CancelException("Buy process aborted.");
+            }
+
+            else if (int.TryParse(input, out int columnId))
+            {
+                return columnId;
             }
             throw new InvalidColumnException("Invalid product id.");
         }

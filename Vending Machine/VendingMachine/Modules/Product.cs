@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace iQuest.VendingMachine
+﻿namespace iQuest.VendingMachine
 {
     internal class Product
     {
-        public string Name { get;}
+        public string Name { get; private set; }
         private decimal Price { get;}
         public int ColumnId { get;}
         public int Quantity { get; private set; }
-        
+
+        public Product()
+        {
+
+        }
+
         public Product(int columnId, string name, int quantity, decimal price)
         {
             ColumnId = columnId;
@@ -33,5 +34,11 @@ namespace iQuest.VendingMachine
         {
             Quantity--;
         }
+
+        public virtual void SetQuantity(int quantity)
+        {
+            Quantity = quantity;
+        }
+
     }
 }

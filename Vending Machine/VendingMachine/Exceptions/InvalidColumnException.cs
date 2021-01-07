@@ -6,6 +6,11 @@ namespace iQuest.VendingMachine.Exceptions
 {
     internal class InvalidColumnException: Exception
     {
+        public InvalidColumnException()
+        {
+
+        }
+
         public InvalidColumnException(string message) : base(message)
         {
 

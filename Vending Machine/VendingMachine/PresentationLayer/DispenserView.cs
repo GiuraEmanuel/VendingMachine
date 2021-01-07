@@ -1,6 +1,8 @@
-﻿namespace iQuest.VendingMachine.PresentationLayer
+﻿using iQuest.VendingMachine.Interfaces;
+
+namespace iQuest.VendingMachine.PresentationLayer
 {
-    internal class DispenserView: DisplayBase
+    internal class DispenserView: DisplayBase, IDispenserView
     {
         public void DispenseProduct(string productName)
         {
