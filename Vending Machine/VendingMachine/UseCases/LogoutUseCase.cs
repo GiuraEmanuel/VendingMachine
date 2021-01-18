@@ -1,5 +1,6 @@
 ﻿using System;
 using iQuest.VendingMachine.Authentication;
+using iQuest.VendingMachine.Interfaces;
 
 namespace iQuest.VendingMachine.UseCases
 {

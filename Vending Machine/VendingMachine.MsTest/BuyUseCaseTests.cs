@@ -1,7 +1,9 @@
 using iQuest.VendingMachine;
 using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
+using iQuest.VendingMachine.Modules;
 using iQuest.VendingMachine.PresentationLayer;
+using iQuest.VendingMachine.UseCases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

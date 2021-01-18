@@ -1,9 +1,9 @@
-﻿namespace iQuest.VendingMachine
+﻿namespace iQuest.VendingMachine.Modules
 {
     internal class Product
     {
-        public string Name { get; private set; }
-        private decimal Price { get;}
+        public string Name { get; }
+        public decimal Price { get;}
         public int ColumnId { get;}
         public int Quantity { get; private set; }
 
@@ -39,6 +39,7 @@
         {
             Quantity = quantity;
         }
+
 
     }
 }

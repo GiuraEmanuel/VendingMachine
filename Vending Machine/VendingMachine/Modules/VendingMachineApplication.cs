@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using iQuest.VendingMachine.Exceptions;
+using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.PresentationLayer;
 
-namespace iQuest.VendingMachine
+namespace iQuest.VendingMachine.Modules
 {
     internal class VendingMachineApplication
     {

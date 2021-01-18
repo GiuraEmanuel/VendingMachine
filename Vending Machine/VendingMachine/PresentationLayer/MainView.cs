@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using iQuest.VendingMachine.Interfaces;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {

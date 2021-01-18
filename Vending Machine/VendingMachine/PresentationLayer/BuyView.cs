@@ -1,13 +1,15 @@
-﻿using iQuest.VendingMachine.Exceptions;
+﻿using System;
+using System.Collections.Generic;
+using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
-using iQuest.VendingMachine.PresentationLayer;
-using System;
+using iQuest.VendingMachine.Modules;
+using iQuest.VendingMachine.Repository;
 
-namespace iQuest.VendingMachine
+namespace iQuest.VendingMachine.PresentationLayer
 {
     internal class BuyView : DisplayBase, IBuyView
     {
-        ProductRepository productRepository = new ProductRepository();
+        private readonly ProductRepository productRepository = new ProductRepository();
 
         public Product RequestProduct(int columnId)
         {
@@ -19,13 +21,14 @@ namespace iQuest.VendingMachine
 
             if (product.Quantity <= 0)
             {
-                throw new InsuficientStockException("Insufficent stock.");
+                throw new InsufficientStockException("Insufficient stock.");
             }
 
-            else if(product == null)
+            if (product == null)
             {
                 throw new InvalidColumnException("Product does not exist.");
             }
+
             return product;
         }
 
@@ -40,11 +43,36 @@ namespace iQuest.VendingMachine
                 throw new CancelException("Buy process aborted.");
             }
 
-            else if (int.TryParse(input, out int columnId))
+            if (int.TryParse(input, out int columnId))
             {
                 return columnId;
             }
+
             throw new InvalidColumnException("Invalid product id.");
+        }
+
+        public int AskForPaymentMethod(List<PaymentMethod> paymentMethods)
+        {
+            Console.WriteLine();
+            Display("Select payment method:", ConsoleColor.Cyan);
+            Console.WriteLine("1.Cash");
+            Console.WriteLine("2.Card");
+
+            var input = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                throw new CancelException("Pay process aborted.");
+            }
+
+            foreach (var paymentMethod in paymentMethods)
+            {
+                if (paymentMethod.Id == Convert.ToInt32(input))
+                {
+                    return paymentMethod.Id;
+                }
+            }
+            throw new InvalidPaymentMethodException("Invalid payment method selected");
         }
 
         public void ShowError(string errorMessage)

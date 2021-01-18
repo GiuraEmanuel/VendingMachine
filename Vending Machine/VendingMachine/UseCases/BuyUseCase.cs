@@ -1,18 +1,23 @@
-﻿using iQuest.VendingMachine.Authentication;
+﻿using System;
 using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
-using System;
+using iQuest.VendingMachine.Modules;
 
-namespace iQuest.VendingMachine.PresentationLayer
+namespace iQuest.VendingMachine.UseCases
 {
     internal class BuyUseCase : IUseCase
     {
+        #region Fields
+
         private readonly IAuthenticationService authenticationService;
         private readonly IProductRepository productRepository;
         private readonly IDispenserView dispenserView;
         private readonly IBuyView buyView;
 
-        public BuyUseCase(IAuthenticationService authenticationService, IProductRepository productRepository, IDispenserView dispenserView, IBuyView buyView)
+        #endregion
+
+        public BuyUseCase(IAuthenticationService authenticationService, IProductRepository productRepository,
+            IDispenserView dispenserView, IBuyView buyView)
         {
             this.authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
             this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
@@ -20,33 +25,34 @@ namespace iQuest.VendingMachine.PresentationLayer
             this.buyView = buyView ?? throw new ArgumentNullException(nameof(buyView));
         }
 
+        #region Properties
+
         public string Name => "buy";
 
         public string Description => "Buy product";
 
         public bool CanExecute => !authenticationService.IsUserAuthenticated;
 
-        public bool IsUserAuthenticated => throw new NotImplementedException();
+        #endregion
 
         public void Execute()
         {
-                int columnId = buyView.AskForColumnId();
-                Product product = productRepository.GetByColumn(columnId);
+            int columnId = buyView.AskForColumnId();
+            Product product = productRepository.GetByColumn(columnId);
 
-                if (product == null)
-                {
-                    throw new InvalidColumnException("Invalid column provided.");
-                }
+            if (product == null)
+            {
+                throw new InvalidColumnException("Invalid column provided.");
+            }
 
-                if (product.Quantity <= 0)
-                {
-                    throw new InsuficientStockException("Insufficent stock.");
-                }
+            if (product.Quantity <= 0)
+            {
+                throw new InsufficientStockException("Insufficient stock.");
+            }
 
-                product.DecrementQuantity();
+            product.DecrementQuantity();
 
-                dispenserView.DispenseProduct(product.Name);
-
+            dispenserView.DispenseProduct(product.Name);
         }
     }
 }

@@ -1,7 +1,10 @@
-﻿using iQuest.VendingMachine.Authentication;
-using System;
+﻿using System;
+using iQuest.VendingMachine.Authentication;
+using iQuest.VendingMachine.Interfaces;
+using iQuest.VendingMachine.PresentationLayer;
+using iQuest.VendingMachine.Repository;
 
-namespace iQuest.VendingMachine
+namespace iQuest.VendingMachine.UseCases
 {
     internal class LookUseCase : IUseCase
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using iQuest.VendingMachine.Modules;
 
 namespace iQuest.VendingMachine
 {

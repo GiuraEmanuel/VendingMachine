@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using iQuest.VendingMachine.Authentication;
+using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.PresentationLayer;
+using iQuest.VendingMachine.Repository;
 using iQuest.VendingMachine.UseCases;
 
-namespace iQuest.VendingMachine
+namespace iQuest.VendingMachine.Modules
 {
     internal class Bootstrapper
     {

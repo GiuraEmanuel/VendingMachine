@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using iQuest.VendingMachine.Modules;
 
 namespace iQuest.VendingMachine.Interfaces
 {

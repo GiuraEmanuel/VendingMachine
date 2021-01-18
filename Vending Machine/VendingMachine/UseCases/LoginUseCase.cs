@@ -1,5 +1,6 @@
 ﻿using System;
 using iQuest.VendingMachine.Authentication;
+using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine.UseCases
