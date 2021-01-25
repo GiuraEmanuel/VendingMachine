@@ -13,16 +13,20 @@ namespace iQuest.VendingMachine.UseCases
         private readonly IProductRepository productRepository;
         private readonly IDispenserView dispenserView;
         private readonly IBuyView buyView;
+        private readonly IPaymentMethodsRepository paymentMethodsRepository;
 
         #endregion
 
         public BuyUseCase(IAuthenticationService authenticationService, IProductRepository productRepository,
-            IDispenserView dispenserView, IBuyView buyView)
+            IDispenserView dispenserView, IBuyView buyView, IPaymentMethodsRepository paymentMethodsRepository)
         {
-            this.authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
+            this.authenticationService =
+                authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
             this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
             this.dispenserView = dispenserView ?? throw new ArgumentNullException(nameof(dispenserView));
             this.buyView = buyView ?? throw new ArgumentNullException(nameof(buyView));
+            this.paymentMethodsRepository = paymentMethodsRepository ??
+                                            throw new ArgumentNullException(nameof(paymentMethodsRepository));
         }
 
         #region Properties
@@ -49,6 +53,10 @@ namespace iQuest.VendingMachine.UseCases
             {
                 throw new InsufficientStockException("Insufficient stock.");
             }
+
+            // payment happens here
+            var paymentUseCase = new PaymentUseCase(authenticationService, buyView, paymentMethodsRepository, product);
+            paymentUseCase.Execute();
 
             product.DecrementQuantity();
 

@@ -24,5 +24,15 @@ namespace iQuest.VendingMachine.PresentationLayer
 
             throw new InvalidInputException("Invalid credit card number introduced.");
         }
+
+        private bool CheckForValidCardNumber(string creditCardNumber)
+        {
+            var convertedCardNumber = Convert.ToInt32(creditCardNumber);
+            for (int i = convertedCardNumber - 1; i >= 0; i-=2)
+            {
+               
+            }
+            return false;
+        }
     }
 }

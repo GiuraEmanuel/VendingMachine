@@ -51,12 +51,16 @@ namespace iQuest.VendingMachine.PresentationLayer
             throw new InvalidColumnException("Invalid product id.");
         }
 
-        public int AskForPaymentMethod(List<PaymentMethod> paymentMethods)
+        public int AskForPaymentMethod(List<IPaymentAlgorithm> paymentMethods)
         {
             Console.WriteLine();
             Display("Select payment method:", ConsoleColor.Cyan);
-            Console.WriteLine("1.Cash");
-            Console.WriteLine("2.Card");
+            Console.WriteLine();
+
+            foreach (var paymentMethod in paymentMethods)
+            {
+                DisplayLine($"{paymentMethod.Id} - {paymentMethod.Name}", ConsoleColor.Cyan);
+            }
 
             var input = Console.ReadLine();
 
@@ -72,6 +76,7 @@ namespace iQuest.VendingMachine.PresentationLayer
                     return paymentMethod.Id;
                 }
             }
+
             throw new InvalidPaymentMethodException("Invalid payment method selected");
         }
 

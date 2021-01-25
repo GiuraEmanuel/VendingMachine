@@ -1,29 +1,37 @@
-﻿using iQuest.VendingMachine.Interfaces;
+﻿using System;
+using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine.Modules
 {
-    public class CashPayment : IPaymentAlgorithm
+    internal class CashPayment : IPaymentAlgorithm
     {
-        public string Name => "cash";
+        public string Name => "Cash";
+        public int Id { get; }
 
-        private readonly CashPaymentTerminal cashPayment;
+        private readonly CashPaymentTerminal cashPaymentTerminal;
 
-        private readonly Product product;
-
-        public CashPayment()
+        public CashPayment(int id)
         {
-            cashPayment = new CashPaymentTerminal();
-            product = new Product();
+            Id = id;
+            cashPaymentTerminal = new CashPaymentTerminal();
         }
 
         public void Run(decimal price)
         {
-            decimal insertedMoney = cashPayment.AskForMoney();
+            decimal insertedMoney = cashPaymentTerminal.AskForMoney();
 
-            if (insertedMoney > product.Price)
+            while (true)
             {
-                cashPayment.GiveBackChange();
+                if (insertedMoney < price)
+                {
+                    insertedMoney += cashPaymentTerminal.AskForMoney();
+                }
+                else if (insertedMoney >= price)
+                {
+                    cashPaymentTerminal.GiveBackChange(insertedMoney - price);
+                    break;
+                }
             }
         }
     }

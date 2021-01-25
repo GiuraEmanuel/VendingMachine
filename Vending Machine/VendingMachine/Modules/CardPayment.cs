@@ -7,11 +7,14 @@ namespace iQuest.VendingMachine.Modules
     {
         private readonly CardPaymentTerminal cardPaymentTerminal;
 
-        public string Name => "card";
+        public string Name => "Card";
+
+        public int Id { get; }
 
 
-        public CardPayment()
+        public CardPayment(int id)
         {
+            Id = id;
             cardPaymentTerminal = new CardPaymentTerminal();
         }
 

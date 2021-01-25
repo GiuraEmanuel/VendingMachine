@@ -8,6 +8,8 @@ namespace iQuest.VendingMachine.Interfaces
     {
         public string Name { get;}
 
+        public int Id { get; }
+
         public void Run(decimal price);
     }
 }

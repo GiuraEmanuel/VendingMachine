@@ -8,11 +8,11 @@ namespace iQuest.VendingMachine.Repository
     {
         private readonly List<Product> products = new List<Product>
         {
-            new Product(1,"Cigars",5,10M),
-            new Product(2,"Coca Cola", 5,3M),
-            new Product(3,"Chocolate bars",5,2M),
-            new Product(4,"Sandwich", 5, 4M),
-            new Product(5,"Apple", 0, 1M)
+            new Product(1,"Cigars",5,10.00M),
+            new Product(2,"Coca Cola", 5,3.00M),
+            new Product(3,"Chocolate bars",5,2.99M),
+            new Product(4,"Sandwich", 5, 4.85M),
+            new Product(5,"Apple", 0, 1.25M)
         };
         
         public IEnumerable<Product> GetAll()

@@ -39,7 +39,5 @@
         {
             Quantity = quantity;
         }
-
-
     }
 }

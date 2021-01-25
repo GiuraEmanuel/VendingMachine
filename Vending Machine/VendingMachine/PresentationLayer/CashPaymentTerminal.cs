@@ -1,7 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Linq;
+using System.Text.RegularExpressions;
 using iQuest.VendingMachine.Exceptions;
-using iQuest.VendingMachine.Repository;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
@@ -10,24 +10,31 @@ namespace iQuest.VendingMachine.PresentationLayer
         public decimal AskForMoney()
         {
             Console.WriteLine();
-            Display("Please introduce money", ConsoleColor.Cyan);
+            Display("Please introduce money: ", ConsoleColor.Cyan);
 
             string input = Console.ReadLine();
 
-            decimal decimalOutput = Convert.ToDecimal(input);
-
             if (string.IsNullOrWhiteSpace(input))
             {
-                throw new InvalidInputException("Invalid input.");
+                throw new CancelException("Payment process aborted.");
             }
 
-            return decimalOutput;
+
+            decimal inputToDecimal = Convert.ToDecimal(input);
+
+            return inputToDecimal;
         }
 
-        public void GiveBackChange()
+        public void GiveBackChange(decimal change)
         {
-            decimal result = 
+            Display("Your change: " + change, ConsoleColor.Cyan);
+            Console.WriteLine();
+        }
 
+        public void ReturnInsertedMoney(decimal insertedMoney)
+        {
+            Display($"Please pick up your inserted money: {insertedMoney}", ConsoleColor.Cyan);
+            Console.WriteLine();
         }
     }
 }

@@ -10,6 +10,6 @@ namespace iQuest.VendingMachine.Interfaces
         Product RequestProduct(int columnId);
         int AskForColumnId();
         public void ShowError(string errorMessage);
-        public int AskForPaymentMethod(List<PaymentMethod> paymentMethods);
+        public int AskForPaymentMethod(List<IPaymentAlgorithm> paymentMethods);
     }
 }
