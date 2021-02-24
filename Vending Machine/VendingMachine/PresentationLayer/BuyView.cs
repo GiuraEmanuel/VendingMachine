@@ -54,7 +54,7 @@ namespace iQuest.VendingMachine.PresentationLayer
         public int AskForPaymentMethod(List<IPaymentAlgorithm> paymentMethods)
         {
             Console.WriteLine();
-            Display("Select payment method:", ConsoleColor.Cyan);
+            Display("Select payment method or type 'exit' to abort:", ConsoleColor.Cyan);
             Console.WriteLine();
 
             foreach (var paymentMethod in paymentMethods)
@@ -64,9 +64,9 @@ namespace iQuest.VendingMachine.PresentationLayer
 
             var input = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(input))
+            if (input == "exit")
             {
-                throw new CancelException("Pay process aborted.");
+                throw new CancelException("Payment process aborted.");
             }
 
             foreach (var paymentMethod in paymentMethods)
@@ -77,7 +77,9 @@ namespace iQuest.VendingMachine.PresentationLayer
                 }
             }
 
-            throw new InvalidPaymentMethodException("Invalid payment method selected");
+            Console.WriteLine("Invalid payment method selected.");
+
+            return AskForPaymentMethod(paymentMethods);
         }
 
         public void ShowError(string errorMessage)

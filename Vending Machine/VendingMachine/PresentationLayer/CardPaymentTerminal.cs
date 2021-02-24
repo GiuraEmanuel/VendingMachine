@@ -8,31 +8,49 @@ namespace iQuest.VendingMachine.PresentationLayer
         public string AskForCardNumber()
         {
             Console.WriteLine();
-            DisplayLine("Input your credit card number: ", ConsoleColor.Cyan);
+            DisplayLine("Please input your credit card number or type 'exit' to cancel: ", ConsoleColor.Cyan);
 
-            string input = Console.ReadLine();
+            var creditCardNumber = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(input))
+            if (creditCardNumber == "exit")
             {
-                throw new InvalidInputException("Credit card number must be introduced.");
+                throw new CancelException("Payment process aborted.");
             }
 
-            if (input.Length == 16)
+            if (creditCardNumber.Length > 16 || creditCardNumber.Length < 16 ||
+                string.IsNullOrEmpty(creditCardNumber) || !CheckForValidCardNumber(creditCardNumber))
             {
-                return input;
+                Console.WriteLine("Invalid credit card number introduced.");
             }
 
-            throw new InvalidInputException("Invalid credit card number introduced.");
+            if (creditCardNumber.Length == 16 && CheckForValidCardNumber(creditCardNumber))
+            {
+                return creditCardNumber;
+            }
+
+            return AskForCardNumber();
         }
 
         private bool CheckForValidCardNumber(string creditCardNumber)
         {
-            var convertedCardNumber = Convert.ToInt32(creditCardNumber);
-            for (int i = convertedCardNumber - 1; i >= 0; i-=2)
+            int nDigits = creditCardNumber.Length;
+
+            int nSum = 0;
+            bool isSecond = false;
+            for (int i = nDigits - 1; i >= 0; i--)
             {
-               
+                int d = creditCardNumber[i] - '0';
+
+                if (isSecond)
+                    d *= 2;
+
+                nSum += d / 10;
+                nSum += d % 10;
+
+                isSecond = !isSecond;
             }
-            return false;
+
+            return (nSum % 10 == 0);
         }
     }
 }

@@ -3,7 +3,7 @@ using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine.Modules
 {
-    public class CardPayment : IPaymentAlgorithm
+    internal class CardPayment : DisplayBase, IPaymentAlgorithm
     {
         private readonly CardPaymentTerminal cardPaymentTerminal;
 

@@ -1,7 +1,8 @@
-﻿using System;
-using iQuest.VendingMachine.Exceptions;
+﻿using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.Modules;
+using System;
+using iQuest.VendingMachine.Repository;
 
 namespace iQuest.VendingMachine.UseCases
 {
@@ -25,8 +26,7 @@ namespace iQuest.VendingMachine.UseCases
             this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
             this.dispenserView = dispenserView ?? throw new ArgumentNullException(nameof(dispenserView));
             this.buyView = buyView ?? throw new ArgumentNullException(nameof(buyView));
-            this.paymentMethodsRepository = paymentMethodsRepository ??
-                                            throw new ArgumentNullException(nameof(paymentMethodsRepository));
+            this.paymentMethodsRepository = new PaymentMethodsRepository();
         }
 
         #region Properties
@@ -54,13 +54,26 @@ namespace iQuest.VendingMachine.UseCases
                 throw new InsufficientStockException("Insufficient stock.");
             }
 
-            // payment happens here
-            var paymentUseCase = new PaymentUseCase(authenticationService, buyView, paymentMethodsRepository, product);
-            paymentUseCase.Execute();
+            try
+            {
+                var paymentUseCase =
+                    new PaymentUseCase(authenticationService, buyView, paymentMethodsRepository, product);
 
-            product.DecrementQuantity();
+                paymentUseCase.Execute();
 
-            dispenserView.DispenseProduct(product.Name);
+                product.DecrementQuantity();
+
+                dispenserView.DispenseProduct(product.Name);
+            }
+
+            catch (CancelException cancelException)
+            {
+                buyView.ShowError(cancelException.Message);
+            }
+            catch (InvalidColumnException invalidColumnException)
+            {
+                buyView.ShowError(invalidColumnException.Message);
+            }
         }
     }
 }

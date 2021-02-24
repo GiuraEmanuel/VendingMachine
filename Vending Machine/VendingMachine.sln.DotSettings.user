@@ -1,0 +1,26 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Hierarchy/Build/SolBuilderDuo/UseMsbuildSolutionBuilder/@EntryValue">NewVersion</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4b2f0d64_002Dbb37_002D466c_002D9fba_002Da2fc2d765db8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Execute_CashPaymentMethodSelected_EverythingIsSuccessful #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::60E33CC2-9C09-48F1-A913-AED6D78CBF28::.NETCoreApp,Version=v3.1::VendingMachine.MsTest.PaymentUseCaseTests.Execute_CashPaymentMethodSelected_EverythingIsSuccessful&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5f252476_002D5c3c_002D4b91_002Dbd43_002Db0b77f380f15/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Execute_InvalidInput_ThrowsInvalidColumnException" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::60E33CC2-9C09-48F1-A913-AED6D78CBF28::.NETCoreApp,Version=v3.1::VendingMachine.MsTest.BuyUseCaseTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::60E33CC2-9C09-48F1-A913-AED6D78CBF28::.NETCoreApp,Version=v3.1::VendingMachine.MsTest.PaymentUseCaseTests.Execute_ListIsNull_ThrowsNullReferenceException&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::60E33CC2-9C09-48F1-A913-AED6D78CBF28::.NETCoreApp,Version=v3.1::VendingMachine.MsTest.PaymentUseCaseTests.Execute_ListIsNotNull_EverythingIsSuccessful&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::60E33CC2-9C09-48F1-A913-AED6D78CBF28::.NETCoreApp,Version=v3.1::VendingMachine.MsTest.PaymentUseCaseTests.Execute_InvalidPaymentMethodSelected_ThrowsNullReferenceException&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::60E33CC2-9C09-48F1-A913-AED6D78CBF28::.NETCoreApp,Version=v3.1::VendingMachine.MsTest.PaymentUseCaseTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9e7ab305_002D3eda_002D4a87_002D96a1_002Dfbe42b180e77/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Execute_CashPaymentMethodSelected_EverythingIsSuccessful #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::60E33CC2-9C09-48F1-A913-AED6D78CBF28::.NETCoreApp,Version=v3.1::VendingMachine.MsTest.PaymentUseCaseTests.Execute_CashPaymentMethodSelected_EverythingIsSuccessful&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a9052b01_002Dcaa6_002D45a2_002D8264_002D78e4ac244401/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Execute_CashPaymentMethodSelected_EverythingIsSuccessful" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::60E33CC2-9C09-48F1-A913-AED6D78CBF28::.NETCoreApp,Version=v3.1::VendingMachine.MsTest.PaymentUseCaseTests.Execute_CashPaymentMethodSelected_EverythingIsSuccessful&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

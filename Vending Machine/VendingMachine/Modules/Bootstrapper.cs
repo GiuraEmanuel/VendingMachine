@@ -33,7 +33,8 @@ namespace iQuest.VendingMachine.Modules
                 new LogoutUseCase(authenticationService),
                 new LookUseCase(authenticationService, productRepository, shelfView),
                 new BuyUseCase(authenticationService, productRepository, dispenserView, buyView,
-                    paymentMethodsRepository)
+                    paymentMethodsRepository
+                )
             };
 
             return new VendingMachineApplication(useCases, mainView);

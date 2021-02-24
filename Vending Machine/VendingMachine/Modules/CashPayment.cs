@@ -1,4 +1,4 @@
-﻿using System;
+﻿using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.PresentationLayer;
 
@@ -19,19 +19,25 @@ namespace iQuest.VendingMachine.Modules
 
         public void Run(decimal price)
         {
-            decimal insertedMoney = cashPaymentTerminal.AskForMoney();
-
-            while (true)
+            decimal insertedMoney = 0;
+            try
             {
-                if (insertedMoney < price)
+                insertedMoney = cashPaymentTerminal.AskForMoney();
+                while (insertedMoney < price)
                 {
                     insertedMoney += cashPaymentTerminal.AskForMoney();
                 }
-                else if (insertedMoney >= price)
+
+                cashPaymentTerminal.GiveBackChange(insertedMoney - price);
+            }
+            catch (CancelException exception)
+            {
+                if (insertedMoney > 0)
                 {
-                    cashPaymentTerminal.GiveBackChange(insertedMoney - price);
-                    break;
+                    cashPaymentTerminal.ReturnInsertedMoney(insertedMoney);
                 }
+
+                throw exception;
             }
         }
     }

@@ -1,6 +1,5 @@
 ﻿using iQuest.VendingMachine.Interfaces;
 using System;
-using System.Linq;
 using iQuest.VendingMachine.Modules;
 using iQuest.VendingMachine.Repository;
 
@@ -28,8 +27,7 @@ namespace iQuest.VendingMachine.UseCases
             this.authenticationService =
                 authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
             this.buyView = buyView ?? throw new ArgumentNullException(nameof(buyView));
-            this.paymentMethodsRepository = paymentMethodsRepository ??
-                                            throw new ArgumentNullException(nameof(paymentMethodsRepository));
+            this.paymentMethodsRepository = new PaymentMethodsRepository();
             this.product = product ?? throw new ArgumentNullException(nameof(product));
         }
 

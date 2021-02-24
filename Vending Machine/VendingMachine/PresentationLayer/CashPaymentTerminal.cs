@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Text.RegularExpressions;
 using iQuest.VendingMachine.Exceptions;
 
 namespace iQuest.VendingMachine.PresentationLayer
@@ -10,19 +8,22 @@ namespace iQuest.VendingMachine.PresentationLayer
         public decimal AskForMoney()
         {
             Console.WriteLine();
-            Display("Please introduce money: ", ConsoleColor.Cyan);
+            Display("Please introduce money or type 'exit' to cancel: ", ConsoleColor.Cyan);
 
             string input = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(input))
+            if (input == "exit")
             {
                 throw new CancelException("Payment process aborted.");
             }
 
 
-            decimal inputToDecimal = Convert.ToDecimal(input);
+            if (decimal.TryParse(input, out decimal inputToDecimal))
+            {
+                return inputToDecimal;
+            }
 
-            return inputToDecimal;
+            return AskForMoney();
         }
 
         public void GiveBackChange(decimal change)
