@@ -28,9 +28,10 @@ namespace VendingMachine.MsTest
         {
             var paymentUseCase = new PaymentUseCase(authenticationServiceMock.Object, buyViewMock.Object,
                 paymentMethodsRepositoryMock.Object, productMock.Object);
+            
             buyViewMock
                 .Setup(x => x.AskForPaymentMethod(paymentMethodsRepositoryMock.Object.GetAllPaymentMethods()))
-                .Returns(null);
+                .Returns(0);
 
             Assert.ThrowsException<NullReferenceException>(paymentUseCase.Execute);
             buyViewMock.Verify(x => x.AskForPaymentMethod(paymentMethodsRepositoryMock.Object.GetAllPaymentMethods()));
@@ -45,11 +46,5 @@ namespace VendingMachine.MsTest
 
             Assert.IsNotNull(notNullList);
         }
-
-        //[TestMethod]
-        //public void Execute_CashPaymentMethodSelected_EverythingIsSuccessful()
-        //{
-            
-        //}
     }
 }
