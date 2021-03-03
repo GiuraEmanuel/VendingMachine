@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iQuest.VendingMachine.Interfaces
 {
-    internal interface IDispenserView
+    public interface IDispenserView
     {
         void DispenseProduct(string productName);
     }

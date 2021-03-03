@@ -5,7 +5,7 @@ using iQuest.VendingMachine.Modules;
 
 namespace iQuest.VendingMachine.Interfaces
 {
-    internal interface IProductRepository
+    public interface IProductRepository
     {
         public IEnumerable<Product> GetAll();
         public Product GetByColumn(int column);

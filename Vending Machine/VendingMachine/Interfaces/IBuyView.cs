@@ -5,7 +5,7 @@ using iQuest.VendingMachine.Modules;
 
 namespace iQuest.VendingMachine.Interfaces
 {
-    internal interface IBuyView
+    public interface IBuyView
     {
         Product RequestProduct(int columnId);
         int AskForColumnId();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iQuest.VendingMachine.Exceptions
 {
-    internal class InvalidInputException : Exception
+    public class InvalidInputException : Exception
     {
         public InvalidInputException()
         {

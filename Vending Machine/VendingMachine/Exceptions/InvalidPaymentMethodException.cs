@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iQuest.VendingMachine.Exceptions
 {
-    internal class InvalidPaymentMethodException : Exception
+    public class InvalidPaymentMethodException : Exception
     {
         public InvalidPaymentMethodException()
         {

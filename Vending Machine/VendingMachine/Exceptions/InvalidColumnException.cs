@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iQuest.VendingMachine.Exceptions
 {
-    internal class InvalidColumnException: Exception
+    public class InvalidColumnException: Exception
     {
         public InvalidColumnException()
         {

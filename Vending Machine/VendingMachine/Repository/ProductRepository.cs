@@ -4,7 +4,7 @@ using iQuest.VendingMachine.Modules;
 
 namespace iQuest.VendingMachine.Repository
 {
-    internal class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly List<Product> products = new List<Product>
         {

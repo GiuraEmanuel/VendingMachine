@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iQuest.VendingMachine.Interfaces
 {
-    internal interface IPaymentMethodsRepository
+    public interface IPaymentMethodsRepository
     {
         public List<IPaymentAlgorithm> GetAllPaymentMethods();
         public IPaymentAlgorithm GetPaymentMethod(int id);

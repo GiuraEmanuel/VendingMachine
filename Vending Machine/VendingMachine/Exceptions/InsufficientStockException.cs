@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iQuest.VendingMachine.Exceptions
 {
-    internal class InsufficientStockException: Exception
+    public  class InsufficientStockException: Exception
     {
         public InsufficientStockException()
         {

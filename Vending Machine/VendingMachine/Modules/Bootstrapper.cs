@@ -7,7 +7,7 @@ using iQuest.VendingMachine.UseCases;
 
 namespace iQuest.VendingMachine.Modules
 {
-    internal class Bootstrapper
+    public class Bootstrapper
     {
         public void Run()
         {

@@ -4,7 +4,7 @@ using iQuest.VendingMachine.Interfaces;
 
 namespace iQuest.VendingMachine.UseCases
 {
-    internal class LogoutUseCase : IUseCase
+    public class LogoutUseCase : IUseCase
     {
         private readonly AuthenticationService authenticationService;
 

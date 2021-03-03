@@ -5,7 +5,7 @@ using iQuest.VendingMachine.Repository;
 
 namespace iQuest.VendingMachine.UseCases
 {
-    internal class PaymentUseCase : IUseCase
+    public class PaymentUseCase : IUseCase
     {
         private readonly IAuthenticationService authenticationService;
 

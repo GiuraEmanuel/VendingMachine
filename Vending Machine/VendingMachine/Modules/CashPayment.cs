@@ -4,7 +4,7 @@ using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine.Modules
 {
-    internal class CashPayment : IPaymentAlgorithm
+    public class CashPayment : IPaymentAlgorithm
     {
         public string Name => "Cash";
         public int Id { get; }

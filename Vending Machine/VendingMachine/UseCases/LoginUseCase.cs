@@ -5,7 +5,7 @@ using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine.UseCases
 {
-    internal class LoginUseCase : IUseCase
+    public class LoginUseCase : IUseCase
     {
         private readonly AuthenticationService authenticationService;
         private readonly LoginView loginView;

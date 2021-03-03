@@ -3,7 +3,7 @@ using iQuest.VendingMachine.Interfaces;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    internal class MainView : DisplayBase
+    public class MainView : DisplayBase
     {
         public void DisplayApplicationHeader()
         {

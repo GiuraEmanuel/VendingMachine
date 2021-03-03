@@ -3,7 +3,7 @@ using iQuest.VendingMachine.Exceptions;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    internal class CardPaymentTerminal : DisplayBase
+    public class CardPaymentTerminal : DisplayBase
     {
         public string AskForCardNumber()
         {

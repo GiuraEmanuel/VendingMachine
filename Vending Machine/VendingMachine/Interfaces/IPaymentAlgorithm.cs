@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iQuest.VendingMachine.Interfaces
 {
-    internal interface IPaymentAlgorithm
+    public interface IPaymentAlgorithm
     {
         public string Name { get;}
 

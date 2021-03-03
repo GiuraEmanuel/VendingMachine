@@ -5,7 +5,7 @@ using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine.Modules
 {
-    internal class VendingMachineApplication
+    public class VendingMachineApplication
     {
         private readonly List<IUseCase> useCases;
         private readonly MainView mainView;

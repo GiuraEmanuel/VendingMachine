@@ -2,7 +2,7 @@
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    internal class LoginView : DisplayBase
+    public class LoginView : DisplayBase
     {
         public string AskForPassword()
         {

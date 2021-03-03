@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using iQuest.VendingMachine.Interfaces;
 
 
@@ -52,21 +53,7 @@ namespace iQuest.VendingMachine.PresentationLayer
             }
         }
 
-        private IUseCase FindUseCase(string rawValue)
-        {
-            IUseCase selectedUseCase = null;
-
-            foreach (IUseCase x in UseCases)
-            {
-                if (x.Name == rawValue)
-                {
-                    selectedUseCase = x;
-                    break;
-                }
-            }
-
-            return selectedUseCase;
-        }
+        private IUseCase FindUseCase(string rawValue) => UseCases.FirstOrDefault(u => u.Name == rawValue);
 
         private string ReadCommandName()
         {

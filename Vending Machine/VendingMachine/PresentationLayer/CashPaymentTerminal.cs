@@ -3,7 +3,7 @@ using iQuest.VendingMachine.Exceptions;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    internal class CashPaymentTerminal : DisplayBase
+    public class CashPaymentTerminal : DisplayBase
     {
         public decimal AskForMoney()
         {

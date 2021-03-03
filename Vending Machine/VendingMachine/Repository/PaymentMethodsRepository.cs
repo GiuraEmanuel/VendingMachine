@@ -4,7 +4,7 @@ using iQuest.VendingMachine.Modules;
 
 namespace iQuest.VendingMachine.Repository
 {
-    internal class PaymentMethodsRepository : IPaymentMethodsRepository
+    public class PaymentMethodsRepository : IPaymentMethodsRepository
     {
         private readonly List<IPaymentAlgorithm> paymentMethods = new List<IPaymentAlgorithm>
         {

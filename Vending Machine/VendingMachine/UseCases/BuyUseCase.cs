@@ -6,7 +6,7 @@ using iQuest.VendingMachine.Repository;
 
 namespace iQuest.VendingMachine.UseCases
 {
-    internal class BuyUseCase : IUseCase
+    public class BuyUseCase : IUseCase
     {
         #region Fields
 

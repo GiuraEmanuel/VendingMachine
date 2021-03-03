@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iQuest.VendingMachine.Exceptions
 {
-    internal class CancelException : Exception
+    public class CancelException : Exception
     {
         public CancelException()
         {

@@ -1,6 +1,6 @@
 ﻿namespace iQuest.VendingMachine.Modules
 {
-    internal class Product
+    public class Product
     {
         public string Name { get; }
         public decimal Price { get;}
@@ -27,7 +27,7 @@
 
         public override string ToString()
         {
-            return $"{Name} - Quantity: {Quantity} - Price per item: {Price}$"; 
+            return $"{ColumnId} - {Name} - Quantity: {Quantity} - Price per item: {Price}$"; 
         }
 
         public void DecrementQuantity()

@@ -7,7 +7,7 @@ using iQuest.VendingMachine.Repository;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    internal class BuyView : DisplayBase, IBuyView
+    public class BuyView : DisplayBase, IBuyView
     {
         private readonly ProductRepository productRepository = new ProductRepository();
 

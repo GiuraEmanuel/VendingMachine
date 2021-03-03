@@ -6,7 +6,7 @@ using iQuest.VendingMachine.Repository;
 
 namespace iQuest.VendingMachine.UseCases
 {
-    internal class LookUseCase : IUseCase
+    public class LookUseCase : IUseCase
     {
         private readonly AuthenticationService authenticationService;
         private readonly ProductRepository productRepository;
