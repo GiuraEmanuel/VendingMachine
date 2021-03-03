@@ -3,14 +3,21 @@ using iQuest.VendingMachine.Exceptions;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    public class CashPaymentTerminal : DisplayBase
+    public class CashPaymentTerminal
     {
+        private readonly DisplayBase displayBase;
+
+        public CashPaymentTerminal()
+        {
+            displayBase = new DisplayBase();
+        }
+
         public decimal AskForMoney()
         {
             Console.WriteLine();
-            Display("Please introduce money or type 'exit' to cancel: ", ConsoleColor.Cyan);
+            displayBase.Display("Please introduce money or type 'exit' to cancel: ", ConsoleColor.Cyan);
 
-            string input = Console.ReadLine();
+            string input = displayBase.ReadLine();
 
             if (input == "exit")
             {
@@ -28,13 +35,13 @@ namespace iQuest.VendingMachine.PresentationLayer
 
         public void GiveBackChange(decimal change)
         {
-            Display("Your change: " + change, ConsoleColor.Cyan);
+            displayBase.Display("Your change: " + change, ConsoleColor.Cyan);
             Console.WriteLine();
         }
 
         public void ReturnInsertedMoney(decimal insertedMoney)
         {
-            Display($"Please pick up your inserted money: {insertedMoney}", ConsoleColor.Cyan);
+            displayBase.Display($"Please pick up your inserted money: {insertedMoney}", ConsoleColor.Cyan);
             Console.WriteLine();
         }
     }

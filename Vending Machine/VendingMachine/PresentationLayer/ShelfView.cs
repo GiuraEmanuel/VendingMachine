@@ -4,8 +4,15 @@ using iQuest.VendingMachine.Modules;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    public class ShelfView : DisplayBase
+    public class ShelfView
     {
+        private readonly DisplayBase displayBase;
+
+        public ShelfView()
+        {
+            displayBase = new DisplayBase();
+        }
+
         public void DisplayProducts(IEnumerable<Product> products)
         {
             Console.WriteLine();
@@ -20,7 +27,7 @@ namespace iQuest.VendingMachine.PresentationLayer
         {
             if (product.Quantity >= 0)
             {
-                DisplayLine(product.ToString(), ConsoleColor.Green);
+                displayBase.DisplayLine(product.ToString(), ConsoleColor.Green);
             }
         }
     }

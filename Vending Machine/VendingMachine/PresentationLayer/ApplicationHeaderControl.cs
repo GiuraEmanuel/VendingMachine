@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    public class ApplicationHeaderControl : DisplayBase
+    public class ApplicationHeaderControl
     {
         private readonly string applicationName;
         private readonly Version applicationVersion;
