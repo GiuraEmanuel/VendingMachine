@@ -7,9 +7,17 @@ using iQuest.VendingMachine.Repository;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    public class BuyView : DisplayBase, IBuyView
+    public class BuyView : IBuyView
     {
-        private readonly ProductRepository productRepository = new ProductRepository();
+        private readonly ProductRepository productRepository;
+
+        private readonly DisplayBase displayBase;
+
+        public BuyView()
+        {
+            displayBase = new DisplayBase();
+            productRepository = new ProductRepository();
+        }
 
         public Product RequestProduct(int columnId)
         {
@@ -35,8 +43,8 @@ namespace iQuest.VendingMachine.PresentationLayer
         public int AskForColumnId()
         {
             Console.WriteLine();
-            Display("Enter product id: ", ConsoleColor.Cyan);
-            string input = Console.ReadLine();
+            displayBase.Display("Enter product id: ", ConsoleColor.Cyan);
+            string input = displayBase.ReadLine();
 
             if (string.IsNullOrWhiteSpace(input))
             {
@@ -54,15 +62,15 @@ namespace iQuest.VendingMachine.PresentationLayer
         public int AskForPaymentMethod(List<IPaymentAlgorithm> paymentMethods)
         {
             Console.WriteLine();
-            Display("Select payment method or type 'exit' to abort:", ConsoleColor.Cyan);
+            displayBase.Display("Select payment method or type 'exit' to abort:", ConsoleColor.Cyan);
             Console.WriteLine();
 
             foreach (var paymentMethod in paymentMethods)
             {
-                DisplayLine($"{paymentMethod.Id} - {paymentMethod.Name}", ConsoleColor.Cyan);
+                displayBase.DisplayLine($"{paymentMethod.Id} - {paymentMethod.Name}", ConsoleColor.Cyan);
             }
 
-            var input = Console.ReadLine();
+            var input = displayBase.ReadLine();
 
             if (input == "exit")
             {
@@ -77,14 +85,14 @@ namespace iQuest.VendingMachine.PresentationLayer
                 }
             }
 
-            Console.WriteLine("Invalid payment method selected.");
+            displayBase.Display("Invalid payment method selected.",ConsoleColor.Red);
 
             return AskForPaymentMethod(paymentMethods);
         }
 
         public void ShowError(string errorMessage)
         {
-            Display(errorMessage, ConsoleColor.Red);
+            displayBase.Display(errorMessage, ConsoleColor.Red);
         }
     }
 }
