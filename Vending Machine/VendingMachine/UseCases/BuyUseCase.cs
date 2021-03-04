@@ -3,6 +3,7 @@ using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.Modules;
 using System;
 using iQuest.VendingMachine.Repository;
+using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine.UseCases
 {
@@ -12,14 +13,14 @@ namespace iQuest.VendingMachine.UseCases
 
         private readonly IAuthenticationService authenticationService;
         private readonly IProductRepository productRepository;
-        private readonly IDispenserView dispenserView;
-        private readonly IBuyView buyView;
+        private readonly DispenserView dispenserView;
+        private readonly BuyView buyView;
         private readonly IPaymentMethodsRepository paymentMethodsRepository;
 
         #endregion
 
         public BuyUseCase(IAuthenticationService authenticationService, IProductRepository productRepository,
-            IDispenserView dispenserView, IBuyView buyView, IPaymentMethodsRepository paymentMethodsRepository)
+            DispenserView dispenserView, BuyView buyView, IPaymentMethodsRepository paymentMethodsRepository)
         {
             this.authenticationService =
                 authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));

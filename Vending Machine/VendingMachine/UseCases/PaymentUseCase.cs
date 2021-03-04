@@ -2,6 +2,7 @@
 using System;
 using iQuest.VendingMachine.Modules;
 using iQuest.VendingMachine.Repository;
+using iQuest.VendingMachine.PresentationLayer;
 
 namespace iQuest.VendingMachine.UseCases
 {
@@ -9,7 +10,7 @@ namespace iQuest.VendingMachine.UseCases
     {
         private readonly IAuthenticationService authenticationService;
 
-        private readonly IBuyView buyView;
+        private readonly BuyView buyView;
 
         private readonly IPaymentMethodsRepository paymentMethodsRepository;
 
@@ -21,7 +22,7 @@ namespace iQuest.VendingMachine.UseCases
 
         public bool CanExecute => !authenticationService.IsUserAuthenticated;
 
-        public PaymentUseCase(IAuthenticationService authenticationService, IBuyView buyView,
+        public PaymentUseCase(IAuthenticationService authenticationService, BuyView buyView,
             IPaymentMethodsRepository paymentMethodsRepository,Product product)
         {
             this.authenticationService =

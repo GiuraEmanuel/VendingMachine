@@ -3,7 +3,7 @@ using iQuest.VendingMachine.Interfaces;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
-    public class DispenserView: IDispenserView
+    public class DispenserView
     {
         private readonly IInputOutputService ioService;
 
