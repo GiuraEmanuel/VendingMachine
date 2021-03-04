@@ -5,17 +5,17 @@ namespace iQuest.VendingMachine.PresentationLayer
 {
     public class DispenserView: IDispenserView
     {
-        private readonly DisplayBase displayBase;
+        private readonly IInputOutputService ioService;
 
-        public DispenserView()
+        public DispenserView(IInputOutputService inputOutputService)
         {
-            displayBase = new DisplayBase();
+            ioService = inputOutputService;
         }
 
         public void DispenseProduct(string productName)
         {
             Console.WriteLine("Your product is being dispensed: ");
-            displayBase.DisplayLine(productName, ConsoleColor.Green);
+            ioService.WriteLine(productName, ConsoleColor.Blue);
         }
     }
 }

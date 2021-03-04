@@ -22,29 +22,5 @@ namespace VendingMachine.MsTest
             paymentMethodsRepositoryMock = new Mock<IPaymentMethodsRepository>();
             productMock = new Mock<Product>();
         }
-
-        [TestMethod]
-        public void Execute_ListIsEmpty_ThrowsNullReferenceException()
-        {
-            var paymentUseCase = new PaymentUseCase(authenticationServiceMock.Object, buyViewMock.Object,
-                paymentMethodsRepositoryMock.Object, productMock.Object);
-            
-            buyViewMock
-                .Setup(x => x.AskForPaymentMethod(paymentMethodsRepositoryMock.Object.GetAllPaymentMethods()))
-                .Returns(0);
-
-            Assert.ThrowsException<NullReferenceException>(paymentUseCase.Execute);
-            buyViewMock.Verify(x => x.AskForPaymentMethod(paymentMethodsRepositoryMock.Object.GetAllPaymentMethods()));
-        }
-
-        [TestMethod]
-        public void Execute_ListIsNotNull_EverythingIsSuccessful()
-        {
-            var notNullList = buyViewMock
-                .Setup(x => x.AskForPaymentMethod(paymentMethodsRepositoryMock.Object.GetAllPaymentMethods()))
-                .Returns(null);
-
-            Assert.IsNotNull(notNullList);
-        }
     }
 }

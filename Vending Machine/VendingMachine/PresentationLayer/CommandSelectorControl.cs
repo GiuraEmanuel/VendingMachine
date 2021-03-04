@@ -8,11 +8,11 @@ namespace iQuest.VendingMachine.PresentationLayer
 {
     public class CommandSelectorControl
     {
-        private readonly DisplayBase displayBase;
+        private readonly IInputOutputService ioService;
 
-        public CommandSelectorControl()
+        public CommandSelectorControl(IInputOutputService inputOutputService)
         {
-            displayBase = new DisplayBase();
+            ioService = inputOutputService;
         }
 
         public IEnumerable<IUseCase> UseCases { get; set; }
@@ -56,7 +56,7 @@ namespace iQuest.VendingMachine.PresentationLayer
                 if (selectedUseCase != null)
                     return selectedUseCase;
 
-                displayBase.DisplayLine("Invalid command. Please try again.", ConsoleColor.Red);
+                ioService.WriteLine("Invalid command. Please try again.", ConsoleColor.Red);
             }
         }
 
@@ -65,9 +65,8 @@ namespace iQuest.VendingMachine.PresentationLayer
         private string ReadCommandName()
         {
             Console.WriteLine();
-            displayBase.Display("Choose command: ", ConsoleColor.Cyan);
+            ioService.Write("Choose command: ", ConsoleColor.Cyan);
             string rawValue = Console.ReadLine();
-            Console.WriteLine();
 
             return rawValue;
         }

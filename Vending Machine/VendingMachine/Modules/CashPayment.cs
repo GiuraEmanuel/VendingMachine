@@ -14,7 +14,7 @@ namespace iQuest.VendingMachine.Modules
         public CashPayment(int id)
         {
             Id = id;
-            cashPaymentTerminal = new CashPaymentTerminal();
+            cashPaymentTerminal = new CashPaymentTerminal(new InputOutputService());
         }
 
         public void Run(decimal price)

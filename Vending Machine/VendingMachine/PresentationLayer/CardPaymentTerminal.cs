@@ -1,23 +1,24 @@
 ﻿using System;
 using iQuest.VendingMachine.Exceptions;
+using iQuest.VendingMachine.Interfaces;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
     public class CardPaymentTerminal
     {
-        private readonly DisplayBase displayBase;
+        private readonly IInputOutputService ioService;
 
-        public CardPaymentTerminal()
+        public CardPaymentTerminal(IInputOutputService inputOutputService)
         {
-            displayBase = new DisplayBase();
+            ioService = inputOutputService;
         }
 
         public string AskForCardNumber()
         {
             Console.WriteLine();
-            displayBase.DisplayLine("Please input your credit card number or type 'exit' to cancel: ", ConsoleColor.Cyan);
+            ioService.WriteLine("Please input your credit card number or type 'exit' to cancel: ", ConsoleColor.Cyan);
 
-            var creditCardNumber = displayBase.ReadLine();
+            var creditCardNumber = ioService.ReadLine();
 
             if (creditCardNumber == "exit")
             {

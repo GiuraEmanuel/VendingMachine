@@ -1,20 +1,21 @@
-﻿using System;
+﻿using iQuest.VendingMachine.Interfaces;
+using System;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
     public class LoginView
     {
-        private readonly DisplayBase displayBase;
+        private readonly IInputOutputService ioService;
 
-        public LoginView()
+        public LoginView(IInputOutputService inputOutputService)
         {
-            displayBase = new DisplayBase();
+            ioService = inputOutputService;
         }
 
         public string AskForPassword()
         {
             Console.WriteLine();
-            displayBase.Display("Type the admin password: ", ConsoleColor.Cyan);
+            ioService.Write("Type the admin password: ", ConsoleColor.Cyan);
             return Console.ReadLine();
         }
     }

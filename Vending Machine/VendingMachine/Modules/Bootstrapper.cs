@@ -17,15 +17,18 @@ namespace iQuest.VendingMachine.Modules
 
         private static VendingMachineApplication BuildApplication()
         {
-            MainView mainView = new MainView();
-            LoginView loginView = new LoginView();
-            ShelfView shelfView = new ShelfView();
-            BuyView buyView = new BuyView();
-            DispenserView dispenserView = new DispenserView();
-
             AuthenticationService authenticationService = new AuthenticationService();
             ProductRepository productRepository = new ProductRepository();
             PaymentMethodsRepository paymentMethodsRepository = new PaymentMethodsRepository();
+            InputOutputService inputOutputService = new InputOutputService();
+
+            MainView mainView = new MainView(inputOutputService);
+            LoginView loginView = new LoginView(inputOutputService);
+            ShelfView shelfView = new ShelfView(inputOutputService);
+            BuyView buyView = new BuyView(inputOutputService);
+            DispenserView dispenserView = new DispenserView(inputOutputService);
+
+            
 
             List<IUseCase> useCases = new List<IUseCase>
             {
@@ -37,7 +40,7 @@ namespace iQuest.VendingMachine.Modules
                 )
             };
 
-            return new VendingMachineApplication(useCases, mainView);
+            return new VendingMachineApplication(useCases, mainView,inputOutputService);
         }
     }
 }

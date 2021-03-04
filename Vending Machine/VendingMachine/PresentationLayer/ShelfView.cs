@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using iQuest.VendingMachine.Interfaces;
 using iQuest.VendingMachine.Modules;
 
 namespace iQuest.VendingMachine.PresentationLayer
 {
     public class ShelfView
     {
-        private readonly DisplayBase displayBase;
+        private readonly IInputOutputService ioService;
 
-        public ShelfView()
+        public ShelfView(IInputOutputService inputOutputService)
         {
-            displayBase = new DisplayBase();
+            ioService = inputOutputService;
         }
 
         public void DisplayProducts(IEnumerable<Product> products)
@@ -27,7 +28,7 @@ namespace iQuest.VendingMachine.PresentationLayer
         {
             if (product.Quantity >= 0)
             {
-                displayBase.DisplayLine(product.ToString(), ConsoleColor.Green);
+                ioService.WriteLine(product.ToString(), ConsoleColor.Green);
             }
         }
     }

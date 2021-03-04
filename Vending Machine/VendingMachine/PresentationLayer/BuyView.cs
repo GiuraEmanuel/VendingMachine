@@ -11,11 +11,11 @@ namespace iQuest.VendingMachine.PresentationLayer
     {
         private readonly ProductRepository productRepository;
 
-        private readonly DisplayBase displayBase;
+        private readonly IInputOutputService ioService;
 
-        public BuyView()
+        public BuyView(IInputOutputService inputOutputService)
         {
-            displayBase = new DisplayBase();
+            ioService = inputOutputService;
             productRepository = new ProductRepository();
         }
 
@@ -43,8 +43,8 @@ namespace iQuest.VendingMachine.PresentationLayer
         public int AskForColumnId()
         {
             Console.WriteLine();
-            displayBase.Display("Enter product id: ", ConsoleColor.Cyan);
-            string input = displayBase.ReadLine();
+            ioService.Write("Enter product id: ", ConsoleColor.Cyan);
+            string input = ioService.ReadLine();
 
             if (string.IsNullOrWhiteSpace(input))
             {
@@ -62,15 +62,16 @@ namespace iQuest.VendingMachine.PresentationLayer
         public int AskForPaymentMethod(List<IPaymentAlgorithm> paymentMethods)
         {
             Console.WriteLine();
-            displayBase.Display("Select payment method or type 'exit' to abort:", ConsoleColor.Cyan);
-            Console.WriteLine();
+            ioService.Write("Select payment method or type 'exit' to abort:", ConsoleColor.Cyan);
 
             foreach (var paymentMethod in paymentMethods)
             {
-                displayBase.DisplayLine($"{paymentMethod.Id} - {paymentMethod.Name}", ConsoleColor.Cyan);
+                ioService.WriteLine($"{paymentMethod.Id} - {paymentMethod.Name}", ConsoleColor.Cyan);
             }
 
-            var input = displayBase.ReadLine();
+            Console.WriteLine();
+
+            var input = ioService.ReadLine();
 
             if (input == "exit")
             {
@@ -85,14 +86,14 @@ namespace iQuest.VendingMachine.PresentationLayer
                 }
             }
 
-            displayBase.Display("Invalid payment method selected.",ConsoleColor.Red);
+            ioService.Write("Invalid payment method selected.",ConsoleColor.Red);
 
             return AskForPaymentMethod(paymentMethods);
         }
 
         public void ShowError(string errorMessage)
         {
-            displayBase.Display(errorMessage, ConsoleColor.Red);
+            ioService.Write(errorMessage, ConsoleColor.Red);
         }
     }
 }

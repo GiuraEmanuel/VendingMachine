@@ -10,12 +10,13 @@ namespace iQuest.VendingMachine.Modules
         private readonly List<IUseCase> useCases;
         private readonly MainView mainView;
         private readonly BuyView buyView;
+        
 
-        public VendingMachineApplication(List<IUseCase> useCases, MainView mainView)
+        public VendingMachineApplication(List<IUseCase> useCases, MainView mainView, IInputOutputService inputOutputService)
         {
             this.useCases = useCases ?? throw new ArgumentNullException(nameof(useCases));
             this.mainView = mainView ?? throw new ArgumentNullException(nameof(mainView));
-            buyView = new BuyView();
+            buyView = new BuyView(inputOutputService);
         }
 
         public void Run()

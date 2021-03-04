@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iQuest.VendingMachine.Interfaces;
+using System;
 using System.Reflection;
 
 namespace iQuest.VendingMachine.PresentationLayer
@@ -7,9 +8,11 @@ namespace iQuest.VendingMachine.PresentationLayer
     {
         private readonly string applicationName;
         private readonly Version applicationVersion;
+        private readonly IInputOutputService ioService;
 
-        public ApplicationHeaderControl()
+        public ApplicationHeaderControl(IInputOutputService inputOutputService)
         {
+            ioService = inputOutputService;
             Assembly assembly = Assembly.GetEntryAssembly();
 
             AssemblyProductAttribute assemblyProductAttribute = assembly.GetCustomAttribute<AssemblyProductAttribute>();

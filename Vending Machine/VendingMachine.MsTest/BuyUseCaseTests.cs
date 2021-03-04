@@ -1,6 +1,5 @@
 using iQuest.VendingMachine.Exceptions;
 using iQuest.VendingMachine.Interfaces;
-using iQuest.VendingMachine.Modules;
 using iQuest.VendingMachine.PresentationLayer;
 using iQuest.VendingMachine.UseCases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,25 +11,27 @@ namespace VendingMachine.MsTest
     public class BuyUseCaseTests
     {
         private readonly Mock<IAuthenticationService> authenticationServiceMock;
-        private readonly BuyView buyView;
+        private readonly Mock<BuyView> buyViewMock;
         private readonly Mock<IProductRepository> productRepositoryMock;
         private readonly DispenserView dispenserView;
         private readonly Mock<IPaymentMethodsRepository> paymentMethodsRepositoryMock;
+        private readonly InputOutputService inputOutputService;
 
         public BuyUseCaseTests()
         {
             authenticationServiceMock = new Mock<IAuthenticationService>();
-            buyView = new BuyView();
+            buyViewMock = new Mock<BuyView>();
             productRepositoryMock = new Mock<IProductRepository>();
-            dispenserView = new DispenserView();
+            dispenserView = new DispenserView(inputOutputService);
             paymentMethodsRepositoryMock = new Mock<IPaymentMethodsRepository>();
+            inputOutputService = new InputOutputService();
         }
 
         [TestMethod]
         public void Execute_InvalidInput_ThrowsInvalidColumnException()
         {
-            var buyUseCase = new BuyUseCase(authenticationServiceMock.Object, productRepositoryMock.Object, dispenserView, buyView, paymentMethodsRepositoryMock.Object);
-            var expectedValue = buyView.AskForColumnId();
+            var buyUseCase = new BuyUseCase(authenticationServiceMock.Object, productRepositoryMock.Object, dispenserView, buyViewMock.Object, paymentMethodsRepositoryMock.Object);
+            buyViewMock.Setup(buyViewMock => buyViewMock.AskForColumnId()).Returns(7);
             Assert.ThrowsException<InvalidColumnException>(() => buyUseCase.Execute());
         }
 

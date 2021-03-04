@@ -15,7 +15,7 @@ namespace iQuest.VendingMachine.Modules
         public CardPayment(int id)
         {
             Id = id;
-            cardPaymentTerminal = new CardPaymentTerminal();
+            cardPaymentTerminal = new CardPaymentTerminal(new InputOutputService());
         }
 
         public void Run(decimal price)
