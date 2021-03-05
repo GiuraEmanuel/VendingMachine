@@ -12,9 +12,11 @@ namespace iQuest.VendingMachine.UseCases
 
         private readonly BuyView buyView;
 
-        private readonly IPaymentMethodsRepository paymentMethodsRepository;
+        private readonly IPaymentMethodProcessor paymentMethodsRepository;
 
         private readonly Product product;
+
+        private readonly IInputOutputService ioService;
 
         public string Name => "pay";
 
@@ -23,12 +25,13 @@ namespace iQuest.VendingMachine.UseCases
         public bool CanExecute => !authenticationService.IsUserAuthenticated;
 
         public PaymentUseCase(IAuthenticationService authenticationService, BuyView buyView,
-            IPaymentMethodsRepository paymentMethodsRepository,Product product)
+            IPaymentMethodProcessor paymentMethodsRepository,Product product, IInputOutputService inputOutputService)
         {
             this.authenticationService =
                 authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
             this.buyView = buyView ?? throw new ArgumentNullException(nameof(buyView));
-            this.paymentMethodsRepository = new PaymentMethodsRepository();
+            ioService = inputOutputService;
+            this.paymentMethodsRepository = new PaymentMethodProcessor(ioService);
             this.product = product ?? throw new ArgumentNullException(nameof(product));
         }
 

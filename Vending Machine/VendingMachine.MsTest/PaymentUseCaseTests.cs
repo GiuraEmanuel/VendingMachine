@@ -12,14 +12,14 @@ namespace VendingMachine.MsTest
     {
         private readonly Mock<IAuthenticationService> authenticationServiceMock;
         private readonly Mock<IBuyView> buyViewMock;
-        private readonly Mock<IPaymentMethodsRepository> paymentMethodsRepositoryMock;
+        private readonly Mock<IPaymentMethodProcessor> paymentMethodsRepositoryMock;
         private readonly Mock<Product> productMock;
 
         public PaymentUseCaseTests()
         {
             authenticationServiceMock = new Mock<IAuthenticationService>();
             buyViewMock = new Mock<IBuyView>();
-            paymentMethodsRepositoryMock = new Mock<IPaymentMethodsRepository>();
+            paymentMethodsRepositoryMock = new Mock<IPaymentMethodProcessor>();
             productMock = new Mock<Product>();
         }
     }

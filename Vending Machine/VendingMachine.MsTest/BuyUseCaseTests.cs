@@ -14,7 +14,7 @@ namespace VendingMachine.MsTest
         private readonly Mock<BuyView> buyViewMock;
         private readonly Mock<IProductRepository> productRepositoryMock;
         private readonly DispenserView dispenserView;
-        private readonly Mock<IPaymentMethodsRepository> paymentMethodsRepositoryMock;
+        private readonly Mock<IPaymentMethodProcessor> paymentMethodsRepositoryMock;
         private readonly InputOutputService inputOutputService;
 
         public BuyUseCaseTests()
@@ -23,7 +23,7 @@ namespace VendingMachine.MsTest
             buyViewMock = new Mock<BuyView>();
             productRepositoryMock = new Mock<IProductRepository>();
             dispenserView = new DispenserView(inputOutputService);
-            paymentMethodsRepositoryMock = new Mock<IPaymentMethodsRepository>();
+            paymentMethodsRepositoryMock = new Mock<IPaymentMethodProcessor>();
             inputOutputService = new InputOutputService();
         }
 

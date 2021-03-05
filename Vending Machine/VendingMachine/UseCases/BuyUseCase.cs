@@ -15,19 +15,21 @@ namespace iQuest.VendingMachine.UseCases
         private readonly IProductRepository productRepository;
         private readonly DispenserView dispenserView;
         private readonly BuyView buyView;
-        private readonly IPaymentMethodsRepository paymentMethodsRepository;
+        private readonly IPaymentMethodProcessor paymentMethodProcessor;
+        private readonly IInputOutputService ioService;
 
         #endregion
 
         public BuyUseCase(IAuthenticationService authenticationService, IProductRepository productRepository,
-            DispenserView dispenserView, BuyView buyView, IPaymentMethodsRepository paymentMethodsRepository)
+            DispenserView dispenserView, BuyView buyView, IPaymentMethodProcessor paymentMethodProcessor, IInputOutputService inputOutputService)
         {
             this.authenticationService =
                 authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
             this.productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
             this.dispenserView = dispenserView ?? throw new ArgumentNullException(nameof(dispenserView));
             this.buyView = buyView ?? throw new ArgumentNullException(nameof(buyView));
-            this.paymentMethodsRepository = new PaymentMethodsRepository();
+            ioService = inputOutputService;
+            this.paymentMethodProcessor = new PaymentMethodProcessor(ioService);
         }
 
         #region Properties
@@ -58,7 +60,7 @@ namespace iQuest.VendingMachine.UseCases
             try
             {
                 var paymentUseCase =
-                    new PaymentUseCase(authenticationService, buyView, paymentMethodsRepository, product);
+                    new PaymentUseCase(authenticationService, buyView, paymentMethodProcessor, product, ioService);
 
                 paymentUseCase.Execute();
 
